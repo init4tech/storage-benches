@@ -1,0 +1,175 @@
+    Finished `bench` profile [optimized + debuginfo] target(s) in 0.29s
+     Running benches/hotdb.rs (target/release/deps/hotdb-357f2ed3cdcc5614)
+Gnuplot not found, using plotters backend
+Benchmarking H1_account_reads/reth/get_account
+Benchmarking H1_account_reads/reth/get_account: Warming up for 2.0000 s
+Benchmarking H1_account_reads/reth/get_account: Collecting 100 samples in estimated 6.0174 s (20k iterations)
+Benchmarking H1_account_reads/reth/get_account: Analyzing
+H1_account_reads/reth/get_account
+                        time:   [297.29 µs 297.45 µs 297.61 µs]
+                        thrpt:  [3.3600 Melem/s 3.3619 Melem/s 3.3637 Melem/s]
+                 change:
+                        time:   [-6.9394% -5.7523% -4.7878%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.0286% +6.1033% +7.4569%]
+                        Performance has improved.
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) high mild
+  1 (1.00%) high severe
+Benchmarking H1_account_reads/reth/get_account_50pct_miss
+Benchmarking H1_account_reads/reth/get_account_50pct_miss: Warming up for 2.0000 s
+Benchmarking H1_account_reads/reth/get_account_50pct_miss: Collecting 100 samples in estimated 5.6197 s (25k iterations)
+Benchmarking H1_account_reads/reth/get_account_50pct_miss: Analyzing
+H1_account_reads/reth/get_account_50pct_miss
+                        time:   [222.03 µs 222.15 µs 222.26 µs]
+                        thrpt:  [4.4992 Melem/s 4.5015 Melem/s 4.5039 Melem/s]
+                 change:
+                        time:   [-8.1306% -6.2945% -4.7261%] (p = 0.00 < 0.05)
+                        thrpt:  [+4.9606% +6.7174% +8.8502%]
+                        Performance has improved.
+
+Benchmarking H2_storage_reads/reth/get_single_slot
+Benchmarking H2_storage_reads/reth/get_single_slot: Warming up for 2.0000 s
+Benchmarking H2_storage_reads/reth/get_single_slot: Collecting 100 samples in estimated 5.6797 s (20k iterations)
+Benchmarking H2_storage_reads/reth/get_single_slot: Analyzing
+H2_storage_reads/reth/get_single_slot
+                        time:   [280.49 µs 280.62 µs 280.75 µs]
+                        thrpt:  [3.5619 Melem/s 3.5636 Melem/s 3.5652 Melem/s]
+                 change:
+                        time:   [-9.1606% -7.2630% -5.5648%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.8927% +7.8318% +10.084%]
+                        Performance has improved.
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+Benchmarking H2_storage_reads/reth/get_all_slots_one_addr
+Benchmarking H2_storage_reads/reth/get_all_slots_one_addr: Warming up for 2.0000 s
+Benchmarking H2_storage_reads/reth/get_all_slots_one_addr: Collecting 100 samples in estimated 5.0026 s (5.2M iterations)
+Benchmarking H2_storage_reads/reth/get_all_slots_one_addr: Analyzing
+H2_storage_reads/reth/get_all_slots_one_addr
+                        time:   [964.24 ns 965.47 ns 966.79 ns]
+                        thrpt:  [1.0343 Gelem/s 1.0358 Gelem/s 1.0371 Gelem/s]
+                 change:
+                        time:   [-9.1858% -7.2220% -5.4916%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.8107% +7.7842% +10.115%]
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  6 (6.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking H3_header_reads/reth/get_header_random
+Benchmarking H3_header_reads/reth/get_header_random: Warming up for 2.0000 s
+Benchmarking H3_header_reads/reth/get_header_random: Collecting 100 samples in estimated 5.3087 s (15k iterations)
+Benchmarking H3_header_reads/reth/get_header_random: Analyzing
+H3_header_reads/reth/get_header_random
+                        time:   [347.53 µs 347.77 µs 348.02 µs]
+                        thrpt:  [2.8734 Melem/s 2.8754 Melem/s 2.8775 Melem/s]
+                 change:
+                        time:   [-6.0658% -4.1610% -2.4920%] (p = 0.00 < 0.05)
+                        thrpt:  [+2.5557% +4.3416% +6.4575%]
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
+  6 (6.00%) low mild
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+Benchmarking H3_header_reads/reth/scan_headers_sequential
+Benchmarking H3_header_reads/reth/scan_headers_sequential: Warming up for 2.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 8.7s, enable flat sampling, or reduce sample count to 50.
+Benchmarking H3_header_reads/reth/scan_headers_sequential: Collecting 100 samples in estimated 8.7043 s (5050 iterations)
+Benchmarking H3_header_reads/reth/scan_headers_sequential: Analyzing
+H3_header_reads/reth/scan_headers_sequential
+                        time:   [1.7125 ms 1.7140 ms 1.7154 ms]
+                        thrpt:  [5.8294 Melem/s 5.8344 Melem/s 5.8393 Melem/s]
+                 change:
+                        time:   [-7.8607% -5.8912% -4.1444%] (p = 0.00 < 0.05)
+                        thrpt:  [+4.3236% +6.2600% +8.5314%]
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/1
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/1: Warming up for 2.0000 s
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/1: Collecting 100 samples in estimated 6.2293 s (300 iterations)
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/1: Analyzing
+H4_batch_ingestion/reth/ingest_blocks/1
+                        time:   [10.940 ms 11.168 ms 11.389 ms]
+                        thrpt:  [87.806  elem/s 89.541  elem/s 91.408  elem/s]
+                 change:
+                        time:   [-25.064% -22.255% -19.260%] (p = 0.00 < 0.05)
+                        thrpt:  [+23.854% +28.625% +33.447%]
+                        Performance has improved.
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/10
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/10: Warming up for 2.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 10.8s, or reduce sample count to 40.
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/10: Collecting 100 samples in estimated 10.788 s (100 iterations)
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/10: Analyzing
+H4_batch_ingestion/reth/ingest_blocks/10
+                        time:   [95.191 ms 95.562 ms 95.969 ms]
+                        thrpt:  [104.20  elem/s 104.64  elem/s 105.05  elem/s]
+                 change:
+                        time:   [-39.351% -37.603% -35.906%] (p = 0.00 < 0.05)
+                        thrpt:  [+56.021% +60.264% +64.884%]
+                        Performance has improved.
+Found 22 outliers among 100 measurements (22.00%)
+  3 (3.00%) low severe
+  2 (2.00%) low mild
+  10 (10.00%) high mild
+  7 (7.00%) high severe
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/100
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/100: Warming up for 2.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 96.6s, or reduce sample count to 10.
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/100: Collecting 100 samples in estimated 96.558 s (100 iterations)
+Benchmarking H4_batch_ingestion/reth/ingest_blocks/100: Analyzing
+H4_batch_ingestion/reth/ingest_blocks/100
+                        time:   [982.19 ms 995.14 ms 1.0087 s]
+                        thrpt:  [99.140  elem/s 100.49  elem/s 101.81  elem/s]
+                 change:
+                        time:   [-31.144% -29.247% -27.286%] (p = 0.00 < 0.05)
+                        thrpt:  [+37.525% +41.336% +45.230%]
+                        Performance has improved.
+
+Benchmarking H5_full_scans/reth/scan_accounts
+Benchmarking H5_full_scans/reth/scan_accounts: Warming up for 2.0000 s
+Benchmarking H5_full_scans/reth/scan_accounts: Collecting 100 samples in estimated 5.2058 s (900 iterations)
+Benchmarking H5_full_scans/reth/scan_accounts: Analyzing
+H5_full_scans/reth/scan_accounts
+                        time:   [5.7564 ms 5.7602 ms 5.7649 ms]
+                        thrpt:  [17.346 Melem/s 17.361 Melem/s 17.372 Melem/s]
+                 change:
+                        time:   [-5.4756% -4.5813% -3.9068%] (p = 0.00 < 0.05)
+                        thrpt:  [+4.0657% +4.8012% +5.7928%]
+                        Performance has improved.
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+Benchmarking H5_full_scans/reth/scan_headers
+Benchmarking H5_full_scans/reth/scan_headers: Warming up for 2.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 8.8s, enable flat sampling, or reduce sample count to 50.
+Benchmarking H5_full_scans/reth/scan_headers: Collecting 100 samples in estimated 8.8345 s (5050 iterations)
+Benchmarking H5_full_scans/reth/scan_headers: Analyzing
+H5_full_scans/reth/scan_headers
+                        time:   [1.7500 ms 1.7518 ms 1.7537 ms]
+                        thrpt:  [5.7022 Melem/s 5.7083 Melem/s 5.7143 Melem/s]
+                 change:
+                        time:   [-7.9516% -5.6373% -3.6457%] (p = 0.00 < 0.05)
+                        thrpt:  [+3.7837% +5.9741% +8.6385%]
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+
+Benchmarking H6_mixed_workload/reth/block_execution_cycle
+Benchmarking H6_mixed_workload/reth/block_execution_cycle: Warming up for 2.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 19.5s, or reduce sample count to 20.
+Benchmarking H6_mixed_workload/reth/block_execution_cycle: Collecting 100 samples in estimated 19.453 s (100 iterations)
+Benchmarking H6_mixed_workload/reth/block_execution_cycle: Analyzing
+H6_mixed_workload/reth/block_execution_cycle
+                        time:   [124.33 ms 125.78 ms 127.34 ms]
+                        change: [-26.737% -24.699% -22.506%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+

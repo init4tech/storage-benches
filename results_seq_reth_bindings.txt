@@ -1,0 +1,275 @@
+    Finished `bench` profile [optimized + debuginfo] target(s) in 0.27s
+     Running benches/bindings.rs (target/release/deps/bindings-af1d4f6d18d2979a)
+Gnuplot not found, using plotters backend
+Benchmarking B1_txn_creation/reth/ro_txn
+Benchmarking B1_txn_creation/reth/ro_txn: Warming up for 2.0000 s
+Benchmarking B1_txn_creation/reth/ro_txn: Collecting 100 samples in estimated 5.0004 s (24M iterations)
+Benchmarking B1_txn_creation/reth/ro_txn: Analyzing
+B1_txn_creation/reth/ro_txn
+                        time:   [211.44 ns 211.54 ns 211.66 ns]
+                        change: [-3.6331% -2.2711% -1.3125%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  5 (5.00%) high mild
+  2 (2.00%) high severe
+Benchmarking B1_txn_creation/reth/rw_txn
+Benchmarking B1_txn_creation/reth/rw_txn: Warming up for 2.0000 s
+Benchmarking B1_txn_creation/reth/rw_txn: Collecting 100 samples in estimated 5.1211 s (182k iterations)
+Benchmarking B1_txn_creation/reth/rw_txn: Analyzing
+B1_txn_creation/reth/rw_txn
+                        time:   [27.524 µs 27.847 µs 28.148 µs]
+                        change: [+17.293% +22.093% +27.213%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 27 outliers among 100 measurements (27.00%)
+  15 (15.00%) low severe
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+  10 (10.00%) high severe
+
+Benchmarking B2_point_reads/reth/get/32B_val
+Benchmarking B2_point_reads/reth/get/32B_val: Warming up for 2.0000 s
+Benchmarking B2_point_reads/reth/get/32B_val: Collecting 100 samples in estimated 5.1787 s (20k iterations)
+Benchmarking B2_point_reads/reth/get/32B_val: Analyzing
+B2_point_reads/reth/get/32B_val
+                        time:   [256.95 µs 257.58 µs 258.19 µs]
+                        thrpt:  [3.8732 Melem/s 3.8823 Melem/s 3.8919 Melem/s]
+                 change:
+                        time:   [-3.6570% -2.2526% -1.0856%] (p = 0.00 < 0.05)
+                        thrpt:  [+1.0976% +2.3045% +3.7958%]
+                        Performance has improved.
+Found 18 outliers among 100 measurements (18.00%)
+  1 (1.00%) high mild
+  17 (17.00%) high severe
+Benchmarking B2_point_reads/reth/get/256B_val
+Benchmarking B2_point_reads/reth/get/256B_val: Warming up for 2.0000 s
+Benchmarking B2_point_reads/reth/get/256B_val: Collecting 100 samples in estimated 5.2798 s (20k iterations)
+Benchmarking B2_point_reads/reth/get/256B_val: Analyzing
+B2_point_reads/reth/get/256B_val
+                        time:   [258.08 µs 258.21 µs 258.35 µs]
+                        thrpt:  [3.8707 Melem/s 3.8728 Melem/s 3.8748 Melem/s]
+                 change:
+                        time:   [-4.1125% -2.7295% -1.5413%] (p = 0.00 < 0.05)
+                        thrpt:  [+1.5655% +2.8061% +4.2889%]
+                        Performance has improved.
+Found 5 outliers among 100 measurements (5.00%)
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+Benchmarking B2_point_reads/reth/get/4096B_val
+Benchmarking B2_point_reads/reth/get/4096B_val: Warming up for 2.0000 s
+Benchmarking B2_point_reads/reth/get/4096B_val: Collecting 100 samples in estimated 5.9631 s (15k iterations)
+Benchmarking B2_point_reads/reth/get/4096B_val: Analyzing
+B2_point_reads/reth/get/4096B_val
+                        time:   [393.21 µs 393.45 µs 393.73 µs]
+                        thrpt:  [2.5398 Melem/s 2.5416 Melem/s 2.5432 Melem/s]
+                 change:
+                        time:   [-2.9300% -1.0461% +0.5321%] (p = 0.28 > 0.05)
+                        thrpt:  [-0.5293% +1.0572% +3.0184%]
+                        No change in performance detected.
+Found 13 outliers among 100 measurements (13.00%)
+  4 (4.00%) high mild
+  9 (9.00%) high severe
+
+Benchmarking B3_batch_writes/reth/upsert/100
+Benchmarking B3_batch_writes/reth/upsert/100: Warming up for 2.0000 s
+Benchmarking B3_batch_writes/reth/upsert/100: Collecting 100 samples in estimated 5.1646 s (101k iterations)
+Benchmarking B3_batch_writes/reth/upsert/100: Analyzing
+B3_batch_writes/reth/upsert/100
+                        time:   [53.534 µs 54.634 µs 55.737 µs]
+                        thrpt:  [1.7941 Melem/s 1.8304 Melem/s 1.8680 Melem/s]
+                 change:
+                        time:   [-6.5947% -0.7145% +4.7242%] (p = 0.81 > 0.05)
+                        thrpt:  [-4.5111% +0.7196% +7.0603%]
+                        No change in performance detected.
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+Benchmarking B3_batch_writes/reth/append/100
+Benchmarking B3_batch_writes/reth/append/100: Warming up for 2.0000 s
+Benchmarking B3_batch_writes/reth/append/100: Collecting 100 samples in estimated 5.7356 s (700 iterations)
+Benchmarking B3_batch_writes/reth/append/100: Analyzing
+B3_batch_writes/reth/append/100
+                        time:   [533.33 µs 535.73 µs 537.98 µs]
+                        thrpt:  [185.88 Kelem/s 186.66 Kelem/s 187.50 Kelem/s]
+                 change:
+                        time:   [-13.219% -5.5971% -0.3493%] (p = 0.12 > 0.05)
+                        thrpt:  [+0.3506% +5.9290% +15.232%]
+                        No change in performance detected.
+Found 8 outliers among 100 measurements (8.00%)
+  7 (7.00%) low mild
+  1 (1.00%) high mild
+Benchmarking B3_batch_writes/reth/upsert/1000
+Benchmarking B3_batch_writes/reth/upsert/1000: Warming up for 2.0000 s
+Benchmarking B3_batch_writes/reth/upsert/1000: Collecting 100 samples in estimated 5.4579 s (25k iterations)
+Benchmarking B3_batch_writes/reth/upsert/1000: Analyzing
+B3_batch_writes/reth/upsert/1000
+                        time:   [218.73 µs 219.89 µs 221.51 µs]
+                        thrpt:  [4.5145 Melem/s 4.5478 Melem/s 4.5718 Melem/s]
+                 change:
+                        time:   [-24.242% -18.301% -11.003%] (p = 0.00 < 0.05)
+                        thrpt:  [+12.364% +22.401% +31.999%]
+                        Performance has improved.
+Found 17 outliers among 100 measurements (17.00%)
+  14 (14.00%) high mild
+  3 (3.00%) high severe
+Benchmarking B3_batch_writes/reth/append/1000
+Benchmarking B3_batch_writes/reth/append/1000: Warming up for 2.0000 s
+Benchmarking B3_batch_writes/reth/append/1000: Collecting 100 samples in estimated 5.0002 s (500 iterations)
+Benchmarking B3_batch_writes/reth/append/1000: Analyzing
+B3_batch_writes/reth/append/1000
+                        time:   [1.5470 ms 1.5591 ms 1.5691 ms]
+                        thrpt:  [637.30 Kelem/s 641.40 Kelem/s 646.42 Kelem/s]
+                 change:
+                        time:   [-5.2962% -3.5952% -1.6808%] (p = 0.00 < 0.05)
+                        thrpt:  [+1.7095% +3.7293% +5.5923%]
+                        Performance has improved.
+Found 14 outliers among 100 measurements (14.00%)
+  4 (4.00%) low severe
+  6 (6.00%) high mild
+  4 (4.00%) high severe
+Benchmarking B3_batch_writes/reth/upsert/10000
+Benchmarking B3_batch_writes/reth/upsert/10000: Warming up for 2.0000 s
+Benchmarking B3_batch_writes/reth/upsert/10000: Collecting 100 samples in estimated 5.1850 s (2100 iterations)
+Benchmarking B3_batch_writes/reth/upsert/10000: Analyzing
+B3_batch_writes/reth/upsert/10000
+                        time:   [2.6328 ms 2.6380 ms 2.6431 ms]
+                        thrpt:  [3.7834 Melem/s 3.7907 Melem/s 3.7983 Melem/s]
+                 change:
+                        time:   [-23.025% -21.011% -18.993%] (p = 0.00 < 0.05)
+                        thrpt:  [+23.447% +26.600% +29.913%]
+                        Performance has improved.
+Benchmarking B3_batch_writes/reth/append/10000
+Benchmarking B3_batch_writes/reth/append/10000: Warming up for 2.0000 s
+Benchmarking B3_batch_writes/reth/append/10000: Collecting 100 samples in estimated 5.4130 s (400 iterations)
+Benchmarking B3_batch_writes/reth/append/10000: Analyzing
+B3_batch_writes/reth/append/10000
+                        time:   [7.1027 ms 7.3644 ms 7.6334 ms]
+                        thrpt:  [1.3100 Melem/s 1.3579 Melem/s 1.4079 Melem/s]
+                 change:
+                        time:   [-23.836% -18.353% -12.682%] (p = 0.00 < 0.05)
+                        thrpt:  [+14.524% +22.479% +31.296%]
+                        Performance has improved.
+
+Benchmarking B4_cursor_iteration/reth/forward_scan
+Benchmarking B4_cursor_iteration/reth/forward_scan: Warming up for 2.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 9.5s, enable flat sampling, or reduce sample count to 50.
+Benchmarking B4_cursor_iteration/reth/forward_scan: Collecting 100 samples in estimated 9.5139 s (5050 iterations)
+Benchmarking B4_cursor_iteration/reth/forward_scan: Analyzing
+B4_cursor_iteration/reth/forward_scan
+                        time:   [1.8723 ms 1.8761 ms 1.8826 ms]
+                        thrpt:  [53.119 Melem/s 53.303 Melem/s 53.410 Melem/s]
+                 change:
+                        time:   [-7.8918% -6.4699% -5.2651%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.5577% +6.9174% +8.5680%]
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+Benchmarking B4_cursor_iteration/reth/reverse_scan
+Benchmarking B4_cursor_iteration/reth/reverse_scan: Warming up for 2.0000 s
+Benchmarking B4_cursor_iteration/reth/reverse_scan: Collecting 100 samples in estimated 5.0507 s (2200 iterations)
+Benchmarking B4_cursor_iteration/reth/reverse_scan: Analyzing
+B4_cursor_iteration/reth/reverse_scan
+                        time:   [2.2833 ms 2.2844 ms 2.2857 ms]
+                        thrpt:  [43.751 Melem/s 43.774 Melem/s 43.797 Melem/s]
+                 change:
+                        time:   [+21.153% +22.236% +23.195%] (p = 0.00 < 0.05)
+                        thrpt:  [-18.828% -18.191% -17.460%]
+                        Performance has regressed.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+
+Benchmarking B5_range_queries/reth/seek_then_1000
+Benchmarking B5_range_queries/reth/seek_then_1000: Warming up for 2.0000 s
+Benchmarking B5_range_queries/reth/seek_then_1000: Collecting 100 samples in estimated 5.0523 s (252k iterations)
+Benchmarking B5_range_queries/reth/seek_then_1000: Analyzing
+B5_range_queries/reth/seek_then_1000
+                        time:   [19.810 µs 19.827 µs 19.855 µs]
+                        thrpt:  [50.365 Melem/s 50.437 Melem/s 50.481 Melem/s]
+                 change:
+                        time:   [-6.3815% -6.0114% -5.6508%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.9893% +6.3959% +6.8165%]
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  2 (2.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking B6_dupsort/reth/read_dups_one_key
+Benchmarking B6_dupsort/reth/read_dups_one_key: Warming up for 2.0000 s
+Benchmarking B6_dupsort/reth/read_dups_one_key: Collecting 100 samples in estimated 5.0002 s (6.8M iterations)
+Benchmarking B6_dupsort/reth/read_dups_one_key: Analyzing
+B6_dupsort/reth/read_dups_one_key
+                        time:   [740.95 ns 741.57 ns 742.21 ns]
+                        change: [-8.0822% -6.5033% -5.1838%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+Benchmarking B6_dupsort/reth/full_dupsort_scan
+Benchmarking B6_dupsort/reth/full_dupsort_scan: Warming up for 2.0000 s
+Benchmarking B6_dupsort/reth/full_dupsort_scan: Collecting 100 samples in estimated 5.0624 s (2300 iterations)
+Benchmarking B6_dupsort/reth/full_dupsort_scan: Analyzing
+B6_dupsort/reth/full_dupsort_scan
+                        time:   [2.1865 ms 2.1877 ms 2.1890 ms]
+                        thrpt:  [45.683 Melem/s 45.710 Melem/s 45.734 Melem/s]
+                 change:
+                        time:   [-5.6129% -5.3005% -5.0223%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.2879% +5.5972% +5.9466%]
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+
+Benchmarking B7_commit_latency/reth/commit/1
+Benchmarking B7_commit_latency/reth/commit/1: Warming up for 2.0000 s
+Benchmarking B7_commit_latency/reth/commit/1: Collecting 100 samples in estimated 5.0173 s (141k iterations)
+Benchmarking B7_commit_latency/reth/commit/1: Analyzing
+B7_commit_latency/reth/commit/1
+                        time:   [33.115 µs 33.352 µs 33.605 µs]
+                        thrpt:  [29.757 Kelem/s 29.984 Kelem/s 30.198 Kelem/s]
+                 change:
+                        time:   [+10.354% +13.835% +17.616%] (p = 0.00 < 0.05)
+                        thrpt:  [-14.978% -12.153% -9.3827%]
+                        Performance has regressed.
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) low mild
+  4 (4.00%) high mild
+  1 (1.00%) high severe
+Benchmarking B7_commit_latency/reth/commit/100
+Benchmarking B7_commit_latency/reth/commit/100: Warming up for 2.0000 s
+Benchmarking B7_commit_latency/reth/commit/100: Collecting 100 samples in estimated 5.1276 s (101k iterations)
+Benchmarking B7_commit_latency/reth/commit/100: Analyzing
+B7_commit_latency/reth/commit/100
+                        time:   [50.232 µs 51.354 µs 52.779 µs]
+                        thrpt:  [1.8947 Melem/s 1.9473 Melem/s 1.9908 Melem/s]
+                 change:
+                        time:   [-6.5474% -1.6342% +3.2016%] (p = 0.52 > 0.05)
+                        thrpt:  [-3.1023% +1.6613% +7.0062%]
+                        No change in performance detected.
+Benchmarking B7_commit_latency/reth/commit/1000
+Benchmarking B7_commit_latency/reth/commit/1000: Warming up for 2.0000 s
+Benchmarking B7_commit_latency/reth/commit/1000: Collecting 100 samples in estimated 6.2318 s (25k iterations)
+Benchmarking B7_commit_latency/reth/commit/1000: Analyzing
+B7_commit_latency/reth/commit/1000
+                        time:   [245.96 µs 246.47 µs 247.14 µs]
+                        thrpt:  [4.0463 Melem/s 4.0573 Melem/s 4.0657 Melem/s]
+                 change:
+                        time:   [-22.853% -17.336% -11.219%] (p = 0.00 < 0.05)
+                        thrpt:  [+12.636% +20.972% +29.623%]
+                        Performance has improved.
+Found 19 outliers among 100 measurements (19.00%)
+  19 (19.00%) high severe
+Benchmarking B7_commit_latency/reth/commit/10000
+Benchmarking B7_commit_latency/reth/commit/10000: Warming up for 2.0000 s
+Benchmarking B7_commit_latency/reth/commit/10000: Collecting 100 samples in estimated 5.1903 s (2100 iterations)
+Benchmarking B7_commit_latency/reth/commit/10000: Analyzing
+B7_commit_latency/reth/commit/10000
+                        time:   [2.5477 ms 2.5499 ms 2.5522 ms]
+                        thrpt:  [3.9182 Melem/s 3.9217 Melem/s 3.9251 Melem/s]
+                 change:
+                        time:   [-23.969% -21.704% -19.383%] (p = 0.00 < 0.05)
+                        thrpt:  [+24.043% +27.720% +31.526%]
+                        Performance has improved.
+Found 10 outliers among 100 measurements (10.00%)
+  5 (5.00%) low mild
+  4 (4.00%) high mild
+  1 (1.00%) high severe
+

@@ -1,0 +1,135 @@
+    Finished `bench` profile [optimized + debuginfo] target(s) in 0.28s
+     Running benches/hotdb.rs (target/release/deps/hotdb-60a5cfe22e0bed51)
+Gnuplot not found, using plotters backend
+Benchmarking H1_account_reads/signet/get_account
+Benchmarking H1_account_reads/signet/get_account: Warming up for 1.0000 s
+Benchmarking H1_account_reads/signet/get_account: Collecting 100 samples in estimated 4.3779 s (15k iterations)
+Benchmarking H1_account_reads/signet/get_account: Analyzing
+H1_account_reads/signet/get_account
+                        time:   [300.92 µs 304.15 µs 308.32 µs]
+                        thrpt:  [3.2434 Melem/s 3.2879 Melem/s 3.3231 Melem/s]
+Found 11 outliers among 100 measurements (11.00%)
+  2 (2.00%) high mild
+  9 (9.00%) high severe
+Benchmarking H1_account_reads/signet/get_account_50pct_miss
+Benchmarking H1_account_reads/signet/get_account_50pct_miss: Warming up for 1.0000 s
+Benchmarking H1_account_reads/signet/get_account_50pct_miss: Collecting 100 samples in estimated 3.6745 s (15k iterations)
+Benchmarking H1_account_reads/signet/get_account_50pct_miss: Analyzing
+H1_account_reads/signet/get_account_50pct_miss
+                        time:   [229.76 µs 236.08 µs 244.26 µs]
+                        thrpt:  [4.0940 Melem/s 4.2358 Melem/s 4.3523 Melem/s]
+Found 27 outliers among 100 measurements (27.00%)
+  16 (16.00%) low severe
+  3 (3.00%) high mild
+  8 (8.00%) high severe
+
+Benchmarking H2_storage_reads/signet/get_single_slot
+Benchmarking H2_storage_reads/signet/get_single_slot: Warming up for 1.0000 s
+Benchmarking H2_storage_reads/signet/get_single_slot: Collecting 100 samples in estimated 5.7271 s (10k iterations)
+Benchmarking H2_storage_reads/signet/get_single_slot: Analyzing
+H2_storage_reads/signet/get_single_slot
+                        time:   [543.65 µs 551.04 µs 561.52 µs]
+                        thrpt:  [1.7809 Melem/s 1.8147 Melem/s 1.8394 Melem/s]
+Found 9 outliers among 100 measurements (9.00%)
+  4 (4.00%) high mild
+  5 (5.00%) high severe
+Benchmarking H2_storage_reads/signet/get_all_slots_one_addr
+Benchmarking H2_storage_reads/signet/get_all_slots_one_addr: Warming up for 1.0000 s
+Benchmarking H2_storage_reads/signet/get_all_slots_one_addr: Collecting 100 samples in estimated 3.0024 s (2.3M iterations)
+Benchmarking H2_storage_reads/signet/get_all_slots_one_addr: Analyzing
+H2_storage_reads/signet/get_all_slots_one_addr
+                        time:   [1.2173 µs 1.2390 µs 1.2676 µs]
+                        thrpt:  [788.87 Melem/s 807.09 Melem/s 821.49 Melem/s]
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking H3_header_reads/signet/get_header_random
+Benchmarking H3_header_reads/signet/get_header_random: Warming up for 1.0000 s
+Benchmarking H3_header_reads/signet/get_header_random: Collecting 100 samples in estimated 3.6819 s (10k iterations)
+Benchmarking H3_header_reads/signet/get_header_random: Analyzing
+H3_header_reads/signet/get_header_random
+                        time:   [380.33 µs 390.27 µs 402.14 µs]
+                        thrpt:  [2.4867 Melem/s 2.5623 Melem/s 2.6293 Melem/s]
+Found 10 outliers among 100 measurements (10.00%)
+  1 (1.00%) high mild
+  9 (9.00%) high severe
+Benchmarking H3_header_reads/signet/scan_headers_sequential
+Benchmarking H3_header_reads/signet/scan_headers_sequential: Warming up for 1.0000 s
+Benchmarking H3_header_reads/signet/scan_headers_sequential: Collecting 100 samples in estimated 3.1145 s (1700 iterations)
+Benchmarking H3_header_reads/signet/scan_headers_sequential: Analyzing
+H3_header_reads/signet/scan_headers_sequential
+                        time:   [1.8443 ms 1.8760 ms 1.9126 ms]
+                        thrpt:  [5.2286 Melem/s 5.3305 Melem/s 5.4221 Melem/s]
+Found 38 outliers among 100 measurements (38.00%)
+  22 (22.00%) low mild
+  2 (2.00%) high mild
+  14 (14.00%) high severe
+
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/1
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/1: Warming up for 1.0000 s
+
+Warning: Unable to complete 100 samples in 3.0s. You may wish to increase target time to 3.5s, or reduce sample count to 80.
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/1: Collecting 100 samples in estimated 3.5271 s (100 iterations)
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/1: Analyzing
+H4_batch_ingestion/signet/ingest_blocks/1
+                        time:   [16.301 ms 16.851 ms 17.409 ms]
+                        thrpt:  [57.441  elem/s 59.344  elem/s 61.344  elem/s]
+Found 4 outliers among 100 measurements (4.00%)
+  4 (4.00%) high mild
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/10
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/10: Warming up for 1.0000 s
+
+Warning: Unable to complete 100 samples in 3.0s. You may wish to increase target time to 15.6s, or reduce sample count to 10.
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/10: Collecting 100 samples in estimated 15.582 s (100 iterations)
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/10: Analyzing
+H4_batch_ingestion/signet/ingest_blocks/10
+                        time:   [154.05 ms 158.19 ms 162.70 ms]
+                        thrpt:  [61.462  elem/s 63.216  elem/s 64.916  elem/s]
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/100
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/100: Warming up for 1.0000 s
+
+Warning: Unable to complete 100 samples in 3.0s. You may wish to increase target time to 168.7s, or reduce sample count to 10.
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/100: Collecting 100 samples in estimated 168.74 s (100 iterations)
+Benchmarking H4_batch_ingestion/signet/ingest_blocks/100: Analyzing
+H4_batch_ingestion/signet/ingest_blocks/100
+                        time:   [1.3608 s 1.3970 s 1.4345 s]
+                        thrpt:  [69.711  elem/s 71.583  elem/s 73.488  elem/s]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking H5_full_scans/signet/scan_accounts
+Benchmarking H5_full_scans/signet/scan_accounts: Warming up for 1.0000 s
+Benchmarking H5_full_scans/signet/scan_accounts: Collecting 100 samples in estimated 3.0572 s (1200 iterations)
+Benchmarking H5_full_scans/signet/scan_accounts: Analyzing
+H5_full_scans/signet/scan_accounts
+                        time:   [2.4667 ms 2.5183 ms 2.5818 ms]
+                        thrpt:  [38.733 Melem/s 39.710 Melem/s 40.540 Melem/s]
+Found 8 outliers among 100 measurements (8.00%)
+  2 (2.00%) high mild
+  6 (6.00%) high severe
+Benchmarking H5_full_scans/signet/scan_headers
+Benchmarking H5_full_scans/signet/scan_headers: Warming up for 1.0000 s
+Benchmarking H5_full_scans/signet/scan_headers: Collecting 100 samples in estimated 3.0222 s (1700 iterations)
+Benchmarking H5_full_scans/signet/scan_headers: Analyzing
+H5_full_scans/signet/scan_headers
+                        time:   [1.7599 ms 1.7639 ms 1.7686 ms]
+                        thrpt:  [5.6541 Melem/s 5.6694 Melem/s 5.6822 Melem/s]
+Found 9 outliers among 100 measurements (9.00%)
+  2 (2.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking H6_mixed_workload/signet/block_execution_cycle
+Benchmarking H6_mixed_workload/signet/block_execution_cycle: Warming up for 1.0000 s
+
+Warning: Unable to complete 100 samples in 3.0s. You may wish to increase target time to 26.7s, or reduce sample count to 10.
+Benchmarking H6_mixed_workload/signet/block_execution_cycle: Collecting 100 samples in estimated 26.742 s (100 iterations)
+Benchmarking H6_mixed_workload/signet/block_execution_cycle: Analyzing
+H6_mixed_workload/signet/block_execution_cycle
+                        time:   [174.14 ms 178.58 ms 183.11 ms]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+

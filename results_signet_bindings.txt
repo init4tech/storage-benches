@@ -1,0 +1,514 @@
+    Blocking waiting for file lock on artifact directory
+    Finished `bench` profile [optimized + debuginfo] target(s) in 2.82s
+     Running benches/bindings.rs (target/release/deps/bindings-c85f70f6f81596f4)
+Gnuplot not found, using plotters backend
+Benchmarking B1_txn_creation/signet/ro_sync
+Benchmarking B1_txn_creation/signet/ro_sync: Warming up for 1.0000 s
+Benchmarking B1_txn_creation/signet/ro_sync: Collecting 100 samples in estimated 3.0001 s (19M iterations)
+Benchmarking B1_txn_creation/signet/ro_sync: Analyzing
+B1_txn_creation/signet/ro_sync
+                        time:   [152.67 ns 152.99 ns 153.40 ns]
+                        change: [-2.2027% -1.6048% -1.1197%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+Benchmarking B1_txn_creation/signet/rw_sync
+Benchmarking B1_txn_creation/signet/rw_sync: Warming up for 1.0000 s
+Benchmarking B1_txn_creation/signet/rw_sync: Collecting 100 samples in estimated 3.0255 s (141k iterations)
+Benchmarking B1_txn_creation/signet/rw_sync: Analyzing
+B1_txn_creation/signet/rw_sync
+                        time:   [26.181 µs 27.439 µs 28.529 µs]
+                        change: [-25.397% -23.383% -21.545%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) low mild
+Benchmarking B1_txn_creation/signet/ro_unsync
+Benchmarking B1_txn_creation/signet/ro_unsync: Warming up for 1.0000 s
+Benchmarking B1_txn_creation/signet/ro_unsync: Collecting 100 samples in estimated 3.0001 s (25M iterations)
+Benchmarking B1_txn_creation/signet/ro_unsync: Analyzing
+B1_txn_creation/signet/ro_unsync
+                        time:   [120.27 ns 122.23 ns 124.75 ns]
+                        change: [-2.4353% -1.3294% +0.2676%] (p = 0.04 < 0.05)
+                        Change within noise threshold.
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) high mild
+  5 (5.00%) high severe
+Benchmarking B1_txn_creation/signet/rw_unsync
+Benchmarking B1_txn_creation/signet/rw_unsync: Warming up for 1.0000 s
+Benchmarking B1_txn_creation/signet/rw_unsync: Collecting 100 samples in estimated 3.0001 s (29M iterations)
+Benchmarking B1_txn_creation/signet/rw_unsync: Analyzing
+B1_txn_creation/signet/rw_unsync
+                        time:   [99.735 ns 101.43 ns 103.89 ns]
+                        change: [+0.1569% +1.0109% +1.9315%] (p = 0.02 < 0.05)
+                        Change within noise threshold.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high severe
+
+Benchmarking B2_point_reads/signet/get_sync/32B_val
+Benchmarking B2_point_reads/signet/get_sync/32B_val: Warming up for 1.0000 s
+Benchmarking B2_point_reads/signet/get_sync/32B_val: Collecting 100 samples in estimated 3.9913 s (15k iterations)
+Benchmarking B2_point_reads/signet/get_sync/32B_val: Analyzing
+B2_point_reads/signet/get_sync/32B_val
+                        time:   [264.03 µs 266.50 µs 270.06 µs]
+                        thrpt:  [3.7029 Melem/s 3.7523 Melem/s 3.7874 Melem/s]
+                 change:
+                        time:   [-0.8852% +1.4720% +4.1727%] (p = 0.25 > 0.05)
+                        thrpt:  [-4.0055% -1.4506% +0.8931%]
+                        No change in performance detected.
+Found 11 outliers among 100 measurements (11.00%)
+  11 (11.00%) high severe
+Benchmarking B2_point_reads/signet/get_unsync/32B_val
+Benchmarking B2_point_reads/signet/get_unsync/32B_val: Warming up for 1.0000 s
+Benchmarking B2_point_reads/signet/get_unsync/32B_val: Collecting 100 samples in estimated 3.7081 s (15k iterations)
+Benchmarking B2_point_reads/signet/get_unsync/32B_val: Analyzing
+B2_point_reads/signet/get_unsync/32B_val
+                        time:   [244.27 µs 247.46 µs 251.75 µs]
+                        thrpt:  [3.9722 Melem/s 4.0411 Melem/s 4.0939 Melem/s]
+                 change:
+                        time:   [+0.0253% +1.5816% +3.4683%] (p = 0.08 > 0.05)
+                        thrpt:  [-3.3521% -1.5569% -0.0253%]
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  1 (1.00%) high mild
+  6 (6.00%) high severe
+Benchmarking B2_point_reads/signet/get_sync/256B_val
+Benchmarking B2_point_reads/signet/get_sync/256B_val: Warming up for 1.0000 s
+Benchmarking B2_point_reads/signet/get_sync/256B_val: Collecting 100 samples in estimated 4.1952 s (15k iterations)
+Benchmarking B2_point_reads/signet/get_sync/256B_val: Analyzing
+B2_point_reads/signet/get_sync/256B_val
+                        time:   [269.80 µs 274.90 µs 281.35 µs]
+                        thrpt:  [3.5542 Melem/s 3.6377 Melem/s 3.7065 Melem/s]
+                 change:
+                        time:   [+0.0447% +0.9777% +2.2876%] (p = 0.08 > 0.05)
+                        thrpt:  [-2.2364% -0.9682% -0.0446%]
+                        No change in performance detected.
+Found 13 outliers among 100 measurements (13.00%)
+  6 (6.00%) high mild
+  7 (7.00%) high severe
+Benchmarking B2_point_reads/signet/get_unsync/256B_val
+Benchmarking B2_point_reads/signet/get_unsync/256B_val: Warming up for 1.0000 s
+Benchmarking B2_point_reads/signet/get_unsync/256B_val: Collecting 100 samples in estimated 3.9149 s (15k iterations)
+Benchmarking B2_point_reads/signet/get_unsync/256B_val: Analyzing
+B2_point_reads/signet/get_unsync/256B_val
+                        time:   [252.23 µs 255.73 µs 260.09 µs]
+                        thrpt:  [3.8448 Melem/s 3.9104 Melem/s 3.9646 Melem/s]
+                 change:
+                        time:   [-3.7421% -1.8962% -0.1958%] (p = 0.04 < 0.05)
+                        thrpt:  [+0.1962% +1.9328% +3.8875%]
+                        Change within noise threshold.
+Found 10 outliers among 100 measurements (10.00%)
+  3 (3.00%) low mild
+  2 (2.00%) high mild
+  5 (5.00%) high severe
+Benchmarking B2_point_reads/signet/get_sync/4096B_val
+Benchmarking B2_point_reads/signet/get_sync/4096B_val: Warming up for 1.0000 s
+Benchmarking B2_point_reads/signet/get_sync/4096B_val: Collecting 100 samples in estimated 4.0573 s (10k iterations)
+Benchmarking B2_point_reads/signet/get_sync/4096B_val: Analyzing
+B2_point_reads/signet/get_sync/4096B_val
+                        time:   [397.92 µs 400.95 µs 405.71 µs]
+                        thrpt:  [2.4648 Melem/s 2.4941 Melem/s 2.5131 Melem/s]
+                 change:
+                        time:   [-1.8193% -1.0012% +0.0457%] (p = 0.04 < 0.05)
+                        thrpt:  [-0.0457% +1.0113% +1.8530%]
+                        Change within noise threshold.
+Found 6 outliers among 100 measurements (6.00%)
+  2 (2.00%) high mild
+  4 (4.00%) high severe
+Benchmarking B2_point_reads/signet/get_unsync/4096B_val
+Benchmarking B2_point_reads/signet/get_unsync/4096B_val: Warming up for 1.0000 s
+Benchmarking B2_point_reads/signet/get_unsync/4096B_val: Collecting 100 samples in estimated 4.1335 s (15k iterations)
+Benchmarking B2_point_reads/signet/get_unsync/4096B_val: Analyzing
+B2_point_reads/signet/get_unsync/4096B_val
+                        time:   [267.04 µs 271.24 µs 276.96 µs]
+                        thrpt:  [3.6106 Melem/s 3.6868 Melem/s 3.7448 Melem/s]
+                 change:
+                        time:   [-3.0016% -2.0404% -1.1665%] (p = 0.00 < 0.05)
+                        thrpt:  [+1.1802% +2.0829% +3.0944%]
+                        Performance has improved.
+Found 18 outliers among 100 measurements (18.00%)
+  9 (9.00%) high mild
+  9 (9.00%) high severe
+
+Benchmarking B3_batch_writes/signet/upsert_sync/100
+Benchmarking B3_batch_writes/signet/upsert_sync/100: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/upsert_sync/100: Collecting 100 samples in estimated 3.0872 s (91k iterations)
+Benchmarking B3_batch_writes/signet/upsert_sync/100: Analyzing
+B3_batch_writes/signet/upsert_sync/100
+                        time:   [44.498 µs 46.370 µs 48.318 µs]
+                        thrpt:  [2.0696 Melem/s 2.1565 Melem/s 2.2473 Melem/s]
+                 change:
+                        time:   [-14.112% -10.367% -7.0480%] (p = 0.00 < 0.05)
+                        thrpt:  [+7.5825% +11.566% +16.431%]
+                        Performance has improved.
+Benchmarking B3_batch_writes/signet/upsert_unsync/100
+Benchmarking B3_batch_writes/signet/upsert_unsync/100: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/upsert_unsync/100: Collecting 100 samples in estimated 3.0586 s (232k iterations)
+Benchmarking B3_batch_writes/signet/upsert_unsync/100: Analyzing
+B3_batch_writes/signet/upsert_unsync/100
+                        time:   [13.324 µs 13.548 µs 13.842 µs]
+                        thrpt:  [7.2242 Melem/s 7.3812 Melem/s 7.5051 Melem/s]
+                 change:
+                        time:   [-5.9308% +2.2748% +10.200%] (p = 0.58 > 0.05)
+                        thrpt:  [-9.2555% -2.2242% +6.3047%]
+                        No change in performance detected.
+Benchmarking B3_batch_writes/signet/append_unsync/100
+Benchmarking B3_batch_writes/signet/append_unsync/100: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/append_unsync/100: Collecting 100 samples in estimated 3.0863 s (200 iterations)
+Benchmarking B3_batch_writes/signet/append_unsync/100: Analyzing
+B3_batch_writes/signet/append_unsync/100
+                        time:   [372.27 µs 387.35 µs 401.96 µs]
+                        thrpt:  [248.78 Kelem/s 258.16 Kelem/s 268.62 Kelem/s]
+                 change:
+                        time:   [-3.7582% +1.3874% +6.2400%] (p = 0.58 > 0.05)
+                        thrpt:  [-5.8735% -1.3684% +3.9049%]
+                        No change in performance detected.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+Benchmarking B3_batch_writes/signet/upsert_sync/1000
+Benchmarking B3_batch_writes/signet/upsert_sync/1000: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/upsert_sync/1000: Collecting 100 samples in estimated 3.6238 s (15k iterations)
+Benchmarking B3_batch_writes/signet/upsert_sync/1000: Analyzing
+B3_batch_writes/signet/upsert_sync/1000
+                        time:   [256.93 µs 266.37 µs 277.85 µs]
+                        thrpt:  [3.5990 Melem/s 3.7542 Melem/s 3.8922 Melem/s]
+                 change:
+                        time:   [+4.3518% +12.291% +20.801%] (p = 0.00 < 0.05)
+                        thrpt:  [-17.219% -10.946% -4.1703%]
+                        Performance has regressed.
+Benchmarking B3_batch_writes/signet/upsert_unsync/1000
+Benchmarking B3_batch_writes/signet/upsert_unsync/1000: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/upsert_unsync/1000: Collecting 100 samples in estimated 3.0091 s (15k iterations)
+Benchmarking B3_batch_writes/signet/upsert_unsync/1000: Analyzing
+B3_batch_writes/signet/upsert_unsync/1000
+                        time:   [202.09 µs 207.99 µs 215.43 µs]
+                        thrpt:  [4.6418 Melem/s 4.8078 Melem/s 4.9483 Melem/s]
+                 change:
+                        time:   [+6.6081% +16.058% +26.703%] (p = 0.00 < 0.05)
+                        thrpt:  [-21.075% -13.836% -6.1985%]
+                        Performance has regressed.
+Benchmarking B3_batch_writes/signet/append_unsync/1000
+Benchmarking B3_batch_writes/signet/append_unsync/1000: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/append_unsync/1000: Collecting 100 samples in estimated 3.3728 s (200 iterations)
+Benchmarking B3_batch_writes/signet/append_unsync/1000: Analyzing
+B3_batch_writes/signet/append_unsync/1000
+                        time:   [1.3316 ms 1.3883 ms 1.4430 ms]
+                        thrpt:  [693.01 Kelem/s 720.29 Kelem/s 750.97 Kelem/s]
+                 change:
+                        time:   [-7.3014% -3.0602% +1.0568%] (p = 0.15 > 0.05)
+                        thrpt:  [-1.0458% +3.1568% +7.8765%]
+                        No change in performance detected.
+Found 26 outliers among 100 measurements (26.00%)
+  20 (20.00%) low severe
+  3 (3.00%) low mild
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+Benchmarking B3_batch_writes/signet/upsert_sync/10000
+Benchmarking B3_batch_writes/signet/upsert_sync/10000: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/upsert_sync/10000: Collecting 100 samples in estimated 3.0454 s (1100 iterations)
+Benchmarking B3_batch_writes/signet/upsert_sync/10000: Analyzing
+B3_batch_writes/signet/upsert_sync/10000
+                        time:   [3.5793 ms 3.6817 ms 3.7895 ms]
+                        thrpt:  [2.6389 Melem/s 2.7161 Melem/s 2.7939 Melem/s]
+                 change:
+                        time:   [+19.720% +23.770% +27.835%] (p = 0.00 < 0.05)
+                        thrpt:  [-21.774% -19.205% -16.472%]
+                        Performance has regressed.
+Benchmarking B3_batch_writes/signet/upsert_unsync/10000
+Benchmarking B3_batch_writes/signet/upsert_unsync/10000: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/upsert_unsync/10000: Collecting 100 samples in estimated 3.0522 s (1200 iterations)
+Benchmarking B3_batch_writes/signet/upsert_unsync/10000: Analyzing
+B3_batch_writes/signet/upsert_unsync/10000
+                        time:   [3.1187 ms 3.1878 ms 3.2609 ms]
+                        thrpt:  [3.0666 Melem/s 3.1370 Melem/s 3.2065 Melem/s]
+                 change:
+                        time:   [+8.2772% +10.896% +13.530%] (p = 0.00 < 0.05)
+                        thrpt:  [-11.918% -9.8252% -7.6445%]
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+Benchmarking B3_batch_writes/signet/append_unsync/10000
+Benchmarking B3_batch_writes/signet/append_unsync/10000: Warming up for 1.0000 s
+Benchmarking B3_batch_writes/signet/append_unsync/10000: Collecting 100 samples in estimated 4.9294 s (200 iterations)
+Benchmarking B3_batch_writes/signet/append_unsync/10000: Analyzing
+B3_batch_writes/signet/append_unsync/10000
+                        time:   [8.3315 ms 8.8193 ms 9.3182 ms]
+                        thrpt:  [1.0732 Melem/s 1.1339 Melem/s 1.2003 Melem/s]
+                 change:
+                        time:   [-7.7091% -0.8212% +5.5753%] (p = 0.80 > 0.05)
+                        thrpt:  [-5.2809% +0.8280% +8.3530%]
+                        No change in performance detected.
+
+Benchmarking B4_cursor_iteration/signet/forward_scan_sync
+Benchmarking B4_cursor_iteration/signet/forward_scan_sync: Warming up for 1.0000 s
+Benchmarking B4_cursor_iteration/signet/forward_scan_sync: Collecting 100 samples in estimated 3.0490 s (1500 iterations)
+Benchmarking B4_cursor_iteration/signet/forward_scan_sync: Analyzing
+B4_cursor_iteration/signet/forward_scan_sync
+                        time:   [2.0169 ms 2.0511 ms 2.0938 ms]
+                        thrpt:  [47.760 Melem/s 48.755 Melem/s 49.581 Melem/s]
+                 change:
+                        time:   [+11.077% +13.655% +16.428%] (p = 0.00 < 0.05)
+                        thrpt:  [-14.110% -12.015% -9.9722%]
+                        Performance has regressed.
+Found 14 outliers among 100 measurements (14.00%)
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+  12 (12.00%) high severe
+Benchmarking B4_cursor_iteration/signet/forward_scan_unsync
+Benchmarking B4_cursor_iteration/signet/forward_scan_unsync: Warming up for 1.0000 s
+Benchmarking B4_cursor_iteration/signet/forward_scan_unsync: Collecting 100 samples in estimated 3.1171 s (2500 iterations)
+Benchmarking B4_cursor_iteration/signet/forward_scan_unsync: Analyzing
+B4_cursor_iteration/signet/forward_scan_unsync
+                        time:   [1.2150 ms 1.2203 ms 1.2262 ms]
+                        thrpt:  [81.550 Melem/s 81.946 Melem/s 82.304 Melem/s]
+                 change:
+                        time:   [+4.9118% +5.3817% +5.9102%] (p = 0.00 < 0.05)
+                        thrpt:  [-5.5804% -5.1069% -4.6818%]
+                        Performance has regressed.
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+Benchmarking B4_cursor_iteration/signet/forward_iter_unsync
+Benchmarking B4_cursor_iteration/signet/forward_iter_unsync: Warming up for 1.0000 s
+Benchmarking B4_cursor_iteration/signet/forward_iter_unsync: Collecting 100 samples in estimated 3.0956 s (2600 iterations)
+Benchmarking B4_cursor_iteration/signet/forward_iter_unsync: Analyzing
+B4_cursor_iteration/signet/forward_iter_unsync
+                        time:   [1.1958 ms 1.2015 ms 1.2077 ms]
+                        thrpt:  [82.799 Melem/s 83.227 Melem/s 83.625 Melem/s]
+                 change:
+                        time:   [+5.5832% +6.0430% +6.6223%] (p = 0.00 < 0.05)
+                        thrpt:  [-6.2110% -5.6986% -5.2880%]
+                        Performance has regressed.
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+Benchmarking B4_cursor_iteration/signet/reverse_scan_sync
+Benchmarking B4_cursor_iteration/signet/reverse_scan_sync: Warming up for 1.0000 s
+Benchmarking B4_cursor_iteration/signet/reverse_scan_sync: Collecting 100 samples in estimated 3.1450 s (1700 iterations)
+Benchmarking B4_cursor_iteration/signet/reverse_scan_sync: Analyzing
+B4_cursor_iteration/signet/reverse_scan_sync
+                        time:   [1.8467 ms 1.8508 ms 1.8559 ms]
+                        thrpt:  [53.883 Melem/s 54.031 Melem/s 54.152 Melem/s]
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) high mild
+  5 (5.00%) high severe
+Benchmarking B4_cursor_iteration/signet/reverse_scan_unsync
+Benchmarking B4_cursor_iteration/signet/reverse_scan_unsync: Warming up for 1.0000 s
+
+Warning: Unable to complete 100 samples in 3.0s. You may wish to increase target time to 6.0s, enable flat sampling, or reduce sample count to 40.
+Benchmarking B4_cursor_iteration/signet/reverse_scan_unsync: Collecting 100 samples in estimated 5.9616 s (5050 iterations)
+Benchmarking B4_cursor_iteration/signet/reverse_scan_unsync: Analyzing
+B4_cursor_iteration/signet/reverse_scan_unsync
+                        time:   [1.1791 ms 1.1811 ms 1.1835 ms]
+                        thrpt:  [84.498 Melem/s 84.667 Melem/s 84.814 Melem/s]
+                 change:
+                        time:   [+11.376% +11.686% +11.966%] (p = 0.00 < 0.05)
+                        thrpt:  [-10.687% -10.463% -10.214%]
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking B5_range_queries/signet/seek_then_1000_sync
+Benchmarking B5_range_queries/signet/seek_then_1000_sync: Warming up for 1.0000 s
+Benchmarking B5_range_queries/signet/seek_then_1000_sync: Collecting 100 samples in estimated 3.1012 s (146k iterations)
+Benchmarking B5_range_queries/signet/seek_then_1000_sync: Analyzing
+B5_range_queries/signet/seek_then_1000_sync
+                        time:   [21.037 µs 21.083 µs 21.142 µs]
+                        thrpt:  [47.299 Melem/s 47.431 Melem/s 47.534 Melem/s]
+                 change:
+                        time:   [+10.549% +11.028% +11.452%] (p = 0.00 < 0.05)
+                        thrpt:  [-10.276% -9.9325% -9.5424%]
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  3 (3.00%) high mild
+  6 (6.00%) high severe
+Benchmarking B5_range_queries/signet/seek_then_1000_unsync
+Benchmarking B5_range_queries/signet/seek_then_1000_unsync: Warming up for 1.0000 s
+Benchmarking B5_range_queries/signet/seek_then_1000_unsync: Collecting 100 samples in estimated 3.0004 s (222k iterations)
+Benchmarking B5_range_queries/signet/seek_then_1000_unsync: Analyzing
+B5_range_queries/signet/seek_then_1000_unsync
+                        time:   [13.505 µs 13.533 µs 13.568 µs]
+                        thrpt:  [73.704 Melem/s 73.893 Melem/s 74.044 Melem/s]
+                 change:
+                        time:   [+6.1634% +6.4362% +6.6990%] (p = 0.00 < 0.05)
+                        thrpt:  [-6.2784% -6.0470% -5.8056%]
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking B6_dupsort/signet/read_dups_one_key_sync
+Benchmarking B6_dupsort/signet/read_dups_one_key_sync: Warming up for 1.0000 s
+Benchmarking B6_dupsort/signet/read_dups_one_key_sync: Collecting 100 samples in estimated 3.0031 s (3.8M iterations)
+Benchmarking B6_dupsort/signet/read_dups_one_key_sync: Analyzing
+B6_dupsort/signet/read_dups_one_key_sync
+                        time:   [784.60 ns 786.29 ns 788.27 ns]
+Found 5 outliers among 100 measurements (5.00%)
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+Benchmarking B6_dupsort/signet/read_dups_one_key_unsync
+Benchmarking B6_dupsort/signet/read_dups_one_key_unsync: Warming up for 1.0000 s
+Benchmarking B6_dupsort/signet/read_dups_one_key_unsync: Collecting 100 samples in estimated 3.0027 s (4.6M iterations)
+Benchmarking B6_dupsort/signet/read_dups_one_key_unsync: Analyzing
+B6_dupsort/signet/read_dups_one_key_unsync
+                        time:   [656.60 ns 659.92 ns 663.76 ns]
+Found 9 outliers among 100 measurements (9.00%)
+  5 (5.00%) high mild
+  4 (4.00%) high severe
+Benchmarking B6_dupsort/signet/read_dups_one_key_dupfixed
+Benchmarking B6_dupsort/signet/read_dups_one_key_dupfixed: Warming up for 1.0000 s
+Benchmarking B6_dupsort/signet/read_dups_one_key_dupfixed: Collecting 100 samples in estimated 3.0016 s (5.4M iterations)
+Benchmarking B6_dupsort/signet/read_dups_one_key_dupfixed: Analyzing
+B6_dupsort/signet/read_dups_one_key_dupfixed
+                        time:   [548.50 ns 549.60 ns 550.99 ns]
+                        change: [+6.8832% +7.3146% +7.7634%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  7 (7.00%) high mild
+  2 (2.00%) high severe
+Benchmarking B6_dupsort/signet/full_dupsort_scan_sync
+Benchmarking B6_dupsort/signet/full_dupsort_scan_sync: Warming up for 1.0000 s
+Benchmarking B6_dupsort/signet/full_dupsort_scan_sync: Collecting 100 samples in estimated 3.1695 s (1400 iterations)
+Benchmarking B6_dupsort/signet/full_dupsort_scan_sync: Analyzing
+B6_dupsort/signet/full_dupsort_scan_sync
+                        time:   [2.2665 ms 2.2706 ms 2.2756 ms]
+                        thrpt:  [43.945 Melem/s 44.042 Melem/s 44.121 Melem/s]
+Found 11 outliers among 100 measurements (11.00%)
+  1 (1.00%) low mild
+  4 (4.00%) high mild
+  6 (6.00%) high severe
+Benchmarking B6_dupsort/signet/full_dupsort_scan_unsync
+Benchmarking B6_dupsort/signet/full_dupsort_scan_unsync: Warming up for 1.0000 s
+Benchmarking B6_dupsort/signet/full_dupsort_scan_unsync: Collecting 100 samples in estimated 3.0686 s (2000 iterations)
+Benchmarking B6_dupsort/signet/full_dupsort_scan_unsync: Analyzing
+B6_dupsort/signet/full_dupsort_scan_unsync
+                        time:   [1.5336 ms 1.5377 ms 1.5422 ms]
+                        thrpt:  [64.844 Melem/s 65.031 Melem/s 65.204 Melem/s]
+Found 6 outliers among 100 measurements (6.00%)
+  5 (5.00%) high mild
+  1 (1.00%) high severe
+Benchmarking B6_dupsort/signet/full_dupfixed_scan
+Benchmarking B6_dupsort/signet/full_dupfixed_scan: Warming up for 1.0000 s
+
+Warning: Unable to complete 100 samples in 3.0s. You may wish to increase target time to 3.4s, enable flat sampling, or reduce sample count to 60.
+Benchmarking B6_dupsort/signet/full_dupfixed_scan: Collecting 100 samples in estimated 3.4139 s (5050 iterations)
+Benchmarking B6_dupsort/signet/full_dupfixed_scan: Analyzing
+B6_dupsort/signet/full_dupfixed_scan
+                        time:   [672.18 µs 674.39 µs 677.95 µs]
+                        thrpt:  [147.50 Melem/s 148.28 Melem/s 148.77 Melem/s]
+                 change:
+                        time:   [+3.1695% +3.4556% +3.7757%] (p = 0.00 < 0.05)
+                        thrpt:  [-3.6383% -3.3402% -3.0721%]
+                        Performance has regressed.
+Found 16 outliers among 100 measurements (16.00%)
+  2 (2.00%) low mild
+  5 (5.00%) high mild
+  9 (9.00%) high severe
+
+Benchmarking B7_commit_latency/signet/commit_sync/1
+Benchmarking B7_commit_latency/signet/commit_sync/1: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_sync/1: Collecting 100 samples in estimated 3.1044 s (136k iterations)
+Benchmarking B7_commit_latency/signet/commit_sync/1: Analyzing
+B7_commit_latency/signet/commit_sync/1
+                        time:   [28.072 µs 29.185 µs 30.260 µs]
+                        thrpt:  [33.046 Kelem/s 34.264 Kelem/s 35.622 Kelem/s]
+                 change:
+                        time:   [-12.806% -10.565% -8.3774%] (p = 0.00 < 0.05)
+                        thrpt:  [+9.1434% +11.813% +14.686%]
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) low mild
+Benchmarking B7_commit_latency/signet/commit_unsync/1
+Benchmarking B7_commit_latency/signet/commit_unsync/1: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_unsync/1: Collecting 100 samples in estimated 3.0003 s (7.5M iterations)
+Benchmarking B7_commit_latency/signet/commit_unsync/1: Analyzing
+B7_commit_latency/signet/commit_unsync/1
+                        time:   [394.42 ns 396.90 ns 400.32 ns]
+                        thrpt:  [2.4980 Melem/s 2.5195 Melem/s 2.5354 Melem/s]
+                 change:
+                        time:   [+2.3053% +10.240% +19.471%] (p = 0.01 < 0.05)
+                        thrpt:  [-16.297% -9.2891% -2.2534%]
+                        Performance has regressed.
+Found 16 outliers among 100 measurements (16.00%)
+  16 (16.00%) high mild
+Benchmarking B7_commit_latency/signet/commit_sync/100
+Benchmarking B7_commit_latency/signet/commit_sync/100: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_sync/100: Collecting 100 samples in estimated 3.1722 s (66k iterations)
+Benchmarking B7_commit_latency/signet/commit_sync/100: Analyzing
+B7_commit_latency/signet/commit_sync/100
+                        time:   [54.491 µs 56.895 µs 59.502 µs]
+                        thrpt:  [1.6806 Melem/s 1.7576 Melem/s 1.8352 Melem/s]
+                 change:
+                        time:   [-12.450% -8.1324% -3.4755%] (p = 0.00 < 0.05)
+                        thrpt:  [+3.6007% +8.8523% +14.221%]
+                        Performance has improved.
+Benchmarking B7_commit_latency/signet/commit_unsync/100
+Benchmarking B7_commit_latency/signet/commit_unsync/100: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_unsync/100: Collecting 100 samples in estimated 3.0286 s (136k iterations)
+Benchmarking B7_commit_latency/signet/commit_unsync/100: Analyzing
+B7_commit_latency/signet/commit_unsync/100
+                        time:   [21.840 µs 22.032 µs 22.268 µs]
+                        thrpt:  [4.4907 Melem/s 4.5389 Melem/s 4.5788 Melem/s]
+                 change:
+                        time:   [+3.7879% +12.446% +21.476%] (p = 0.00 < 0.05)
+                        thrpt:  [-17.679% -11.069% -3.6497%]
+                        Performance has regressed.
+Found 17 outliers among 100 measurements (17.00%)
+  4 (4.00%) high mild
+  13 (13.00%) high severe
+Benchmarking B7_commit_latency/signet/commit_sync/1000
+Benchmarking B7_commit_latency/signet/commit_sync/1000: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_sync/1000: Collecting 100 samples in estimated 4.2317 s (15k iterations)
+Benchmarking B7_commit_latency/signet/commit_sync/1000: Analyzing
+B7_commit_latency/signet/commit_sync/1000
+                        time:   [281.88 µs 288.65 µs 297.45 µs]
+                        thrpt:  [3.3619 Melem/s 3.4644 Melem/s 3.5476 Melem/s]
+                 change:
+                        time:   [+3.1680% +11.072% +20.030%] (p = 0.01 < 0.05)
+                        thrpt:  [-16.688% -9.9681% -3.0707%]
+                        Performance has regressed.
+Benchmarking B7_commit_latency/signet/commit_unsync/1000
+Benchmarking B7_commit_latency/signet/commit_unsync/1000: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_unsync/1000: Collecting 100 samples in estimated 3.7595 s (15k iterations)
+Benchmarking B7_commit_latency/signet/commit_unsync/1000: Analyzing
+B7_commit_latency/signet/commit_unsync/1000
+                        time:   [236.24 µs 238.40 µs 241.23 µs]
+                        thrpt:  [4.1454 Melem/s 4.1946 Melem/s 4.2330 Melem/s]
+                 change:
+                        time:   [+3.3940% +12.150% +21.514%] (p = 0.01 < 0.05)
+                        thrpt:  [-17.705% -10.833% -3.2826%]
+                        Performance has regressed.
+Found 14 outliers among 100 measurements (14.00%)
+  2 (2.00%) high mild
+  12 (12.00%) high severe
+Benchmarking B7_commit_latency/signet/commit_sync/10000
+Benchmarking B7_commit_latency/signet/commit_sync/10000: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_sync/10000: Collecting 100 samples in estimated 3.0571 s (1100 iterations)
+Benchmarking B7_commit_latency/signet/commit_sync/10000: Analyzing
+B7_commit_latency/signet/commit_sync/10000
+                        time:   [2.9077 ms 2.9173 ms 2.9286 ms]
+                        thrpt:  [3.4146 Melem/s 3.4278 Melem/s 3.4392 Melem/s]
+                 change:
+                        time:   [+4.7826% +5.1611% +5.5562%] (p = 0.00 < 0.05)
+                        thrpt:  [-5.2637% -4.9078% -4.5644%]
+                        Performance has regressed.
+Found 16 outliers among 100 measurements (16.00%)
+  5 (5.00%) low mild
+  5 (5.00%) high mild
+  6 (6.00%) high severe
+Benchmarking B7_commit_latency/signet/commit_unsync/10000
+Benchmarking B7_commit_latency/signet/commit_unsync/10000: Warming up for 1.0000 s
+Benchmarking B7_commit_latency/signet/commit_unsync/10000: Collecting 100 samples in estimated 3.0257 s (1200 iterations)
+Benchmarking B7_commit_latency/signet/commit_unsync/10000: Analyzing
+B7_commit_latency/signet/commit_unsync/10000
+                        time:   [2.7595 ms 2.7654 ms 2.7719 ms]
+                        thrpt:  [3.6076 Melem/s 3.6161 Melem/s 3.6238 Melem/s]
+                 change:
+                        time:   [+0.1583% +0.3886% +0.6432%] (p = 0.00 < 0.05)
+                        thrpt:  [-0.6391% -0.3871% -0.1581%]
+                        Change within noise threshold.
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+

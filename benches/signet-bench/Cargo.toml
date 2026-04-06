@@ -1,0 +1,27 @@
+[package]
+name = "signet-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bench-shared = { path = "../shared" }
+criterion = "0.5"
+tempfile = "3"
+rand = { version = "0.9", features = ["small_rng"] }
+
+# Binding-level deps
+signet-libmdbx = "0.8.1"
+
+# Hot DB deps
+signet-hot = { version = "0.6.9", features = ["test-utils"] }
+signet-hot-mdbx = { version = "0.6.9", features = ["test-utils"] }
+signet-storage-types = "0.6.9"
+alloy = { version = "1.6", default-features = false, features = ["consensus", "rlp"] }
+
+[[bench]]
+name = "bindings"
+harness = false
+
+[[bench]]
+name = "hotdb"
+harness = false

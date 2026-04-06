@@ -1,0 +1,28 @@
+[package]
+name = "reth-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bench-shared = { path = "../shared" }
+criterion = "0.5"
+tempfile = "3"
+rand = { version = "0.9", features = ["small_rng"] }
+
+# Binding-level deps
+reth-libmdbx = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
+
+# Hot DB deps
+reth-db = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3", features = ["test-utils"] }
+reth-db-api = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
+reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
+alloy-primitives = { version = "1.5", features = ["getrandom"] }
+alloy-consensus = "1.8"
+
+[[bench]]
+name = "bindings"
+harness = false
+
+[[bench]]
+name = "hotdb"
+harness = false
