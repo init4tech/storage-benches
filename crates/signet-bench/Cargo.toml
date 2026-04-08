@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 bench-shared = { path = "../shared" }
-criterion = "0.5"
+criterion = "0.8"
 tempfile = "3"
 rand = { version = "0.9", features = ["small_rng"] }
 
