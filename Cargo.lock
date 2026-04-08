@@ -5531,7 +5531,7 @@ dependencies = [
  "signet-hot",
  "signet-hot-mdbx",
  "signet-libmdbx",
- "signet-storage-types",
+ "signet-storage-types 0.7.0",
  "tempfile",
 ]
 
@@ -5588,7 +5588,7 @@ dependencies = [
  "bytes",
  "itertools 0.14.0",
  "rayon",
- "signet-storage-types",
+ "signet-storage-types 0.6.9",
  "signet-zenith",
  "thiserror 2.0.18",
  "trevm",
@@ -5654,6 +5654,23 @@ name = "signet-storage-types"
 version = "0.6.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2f15f0415835cdf27f030f6f5c2fa96ce60fd9c4a60618d90fb686284ab5e0e"
+dependencies = [
+ "alloy",
+ "bytes",
+ "roaring",
+ "serde",
+ "signet-evm",
+ "signet-types",
+ "signet-zenith",
+ "thiserror 2.0.18",
+ "trevm",
+]
+
+[[package]]
+name = "signet-storage-types"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b9da884d49f8c742a30b1ab7579aa60ccdbbe3bc3e23d7c738cb4195bf90a419"
 dependencies = [
  "alloy",
  "bytes",
