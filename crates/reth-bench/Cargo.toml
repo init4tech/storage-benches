@@ -13,7 +13,7 @@ rand = { version = "0.9", features = ["small_rng"] }
 reth-libmdbx = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
 
 # Hot DB deps
-reth-db = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3", features = ["test-utils"] }
+reth-db = { git = "https://github.com/paradigmxyz/reth", tag = "v2.0.0", features = ["test-utils"] }
 reth-db-api = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
 reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
 alloy-primitives = { version = "1.5", features = ["getrandom"] }
