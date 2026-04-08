@@ -4,12 +4,10 @@ use bench_shared::{
     make_key, make_value, shuffled_indices, sorted_keys, DB_MAX_SIZE, DUPS_PER_KEY, LARGE_N,
     LOOKUP_COUNT, MEDIUM_N, RANGE_COUNT,
 };
-use criterion::{
-    criterion_group, criterion_main, BatchSize, BenchmarkId, Criterion, Throughput,
-};
+use criterion::{criterion_group, criterion_main, BatchSize, BenchmarkId, Criterion, Throughput};
 use signet_libmdbx::*;
 use std::hint::black_box;
-use tempfile::{TempDir, tempdir};
+use tempfile::{tempdir, TempDir};
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -53,7 +51,10 @@ fn populate(env: &Environment, n: u32, val_size: usize) {
 fn populate_dupsort(env: &Environment, n: u32, dups: u32) {
     let txn = env.begin_rw_unsync().unwrap();
     let db = txn
-        .create_db(Some("dupsort"), DatabaseFlags::DUP_SORT | DatabaseFlags::DUP_FIXED)
+        .create_db(
+            Some("dupsort"),
+            DatabaseFlags::DUP_SORT | DatabaseFlags::DUP_FIXED,
+        )
         .unwrap();
     for i in 0..n {
         let key = make_key(i);
@@ -124,8 +125,11 @@ fn b2_point_reads(c: &mut Criterion) {
         populate(&env, n, val_size);
 
         let indices = shuffled_indices(n);
-        let lookup_keys: Vec<[u8; 32]> =
-            indices.iter().take(LOOKUP_COUNT).map(|&i| make_key(i)).collect();
+        let lookup_keys: Vec<[u8; 32]> = indices
+            .iter()
+            .take(LOOKUP_COUNT)
+            .map(|&i| make_key(i))
+            .collect();
 
         group.throughput(Throughput::Elements(LOOKUP_COUNT as u64));
 
@@ -139,10 +143,7 @@ fn b2_point_reads(c: &mut Criterion) {
                 b.iter(|| {
                     let mut total = 0usize;
                     for key in keys {
-                        if let Some(val) = txn
-                            .get::<Vec<u8>>(db.dbi(), key.as_slice())
-                            .unwrap()
-                        {
+                        if let Some(val) = txn.get::<Vec<u8>>(db.dbi(), key.as_slice()).unwrap() {
                             total += val.len();
                         }
                     }
@@ -165,10 +166,7 @@ fn b2_point_reads(c: &mut Criterion) {
                 b.iter(|| {
                     let mut total = 0usize;
                     for key in keys {
-                        if let Some(val) = txn
-                            .get::<Vec<u8>>(db.dbi(), key.as_slice())
-                            .unwrap()
-                        {
+                        if let Some(val) = txn.get::<Vec<u8>>(db.dbi(), key.as_slice()).unwrap() {
                             total += val.len();
                         }
                     }
@@ -198,34 +196,31 @@ fn b3_batch_writes(c: &mut Criterion) {
                 .map(|&i| (make_key(i), make_value(i, 256)))
                 .collect();
 
-            group.bench_function(
-                BenchmarkId::new("signet/upsert_sync", batch),
-                |b| {
-                    b.iter_batched(
-                        || {
-                            let dir = tempdir().unwrap();
-                            let env = open_env(&dir);
-                            {
-                                let txn = env.begin_rw_sync().unwrap();
-                                let _ = txn.open_db(None).unwrap();
-                                txn.commit().unwrap();
-                            }
-                            (dir, env)
-                        },
-                        |(dir, env)| {
+            group.bench_function(BenchmarkId::new("signet/upsert_sync", batch), |b| {
+                b.iter_batched(
+                    || {
+                        let dir = tempdir().unwrap();
+                        let env = open_env(&dir);
+                        {
                             let txn = env.begin_rw_sync().unwrap();
-                            let db = txn.open_db(None).unwrap();
-                            for (k, v) in &pairs {
-                                txn.put(db, k.as_slice(), v.as_slice(), WriteFlags::UPSERT)
-                                    .unwrap();
-                            }
+                            let _ = txn.open_db(None).unwrap();
                             txn.commit().unwrap();
-                            drop(dir);
-                        },
-                        BatchSize::PerIteration,
-                    )
-                },
-            );
+                        }
+                        (dir, env)
+                    },
+                    |(dir, env)| {
+                        let txn = env.begin_rw_sync().unwrap();
+                        let db = txn.open_db(None).unwrap();
+                        for (k, v) in &pairs {
+                            txn.put(db, k.as_slice(), v.as_slice(), WriteFlags::UPSERT)
+                                .unwrap();
+                        }
+                        txn.commit().unwrap();
+                        drop(dir);
+                    },
+                    BatchSize::PerIteration,
+                )
+            });
         }
 
         // UPSERT — unsync (signet advantage)
@@ -236,53 +231,23 @@ fn b3_batch_writes(c: &mut Criterion) {
                 .map(|&i| (make_key(i), make_value(i, 256)))
                 .collect();
 
-            group.bench_function(
-                BenchmarkId::new("signet/upsert_unsync", batch),
-                |b| {
-                    b.iter_batched(
-                        || {
-                            let dir = tempdir().unwrap();
-                            let env = open_env(&dir);
-                            {
-                                let txn = env.begin_rw_unsync().unwrap();
-                                let _ = txn.open_db(None).unwrap();
-                                txn.commit().unwrap();
-                            }
-                            (dir, env)
-                        },
-                        |(dir, env)| {
-                            let txn = env.begin_rw_unsync().unwrap();
-                            let db = txn.open_db(None).unwrap();
-                            for (k, v) in &pairs {
-                                txn.put(db, k.as_slice(), v.as_slice(), WriteFlags::UPSERT)
-                                    .unwrap();
-                            }
-                            txn.commit().unwrap();
-                            drop(dir);
-                        },
-                        BatchSize::PerIteration,
-                    )
-                },
-            );
-        }
-
-        // APPEND — unsync (sorted, fastest path)
-        group.bench_function(
-            BenchmarkId::new("signet/append_unsync", batch),
-            |b| {
-                let keys = sorted_keys(batch);
+            group.bench_function(BenchmarkId::new("signet/upsert_unsync", batch), |b| {
                 b.iter_batched(
                     || {
                         let dir = tempdir().unwrap();
                         let env = open_env(&dir);
+                        {
+                            let txn = env.begin_rw_unsync().unwrap();
+                            let _ = txn.open_db(None).unwrap();
+                            txn.commit().unwrap();
+                        }
                         (dir, env)
                     },
                     |(dir, env)| {
                         let txn = env.begin_rw_unsync().unwrap();
                         let db = txn.open_db(None).unwrap();
-                        for (i, k) in keys.iter().enumerate() {
-                            let v = make_value(i as u32, 256);
-                            txn.put(db, k.as_slice(), v.as_slice(), WriteFlags::APPEND)
+                        for (k, v) in &pairs {
+                            txn.put(db, k.as_slice(), v.as_slice(), WriteFlags::UPSERT)
                                 .unwrap();
                         }
                         txn.commit().unwrap();
@@ -290,8 +255,32 @@ fn b3_batch_writes(c: &mut Criterion) {
                     },
                     BatchSize::PerIteration,
                 )
-            },
-        );
+            });
+        }
+
+        // APPEND — unsync (sorted, fastest path)
+        group.bench_function(BenchmarkId::new("signet/append_unsync", batch), |b| {
+            let keys = sorted_keys(batch);
+            b.iter_batched(
+                || {
+                    let dir = tempdir().unwrap();
+                    let env = open_env(&dir);
+                    (dir, env)
+                },
+                |(dir, env)| {
+                    let txn = env.begin_rw_unsync().unwrap();
+                    let db = txn.open_db(None).unwrap();
+                    for (i, k) in keys.iter().enumerate() {
+                        let v = make_value(i as u32, 256);
+                        txn.put(db, k.as_slice(), v.as_slice(), WriteFlags::APPEND)
+                            .unwrap();
+                    }
+                    txn.commit().unwrap();
+                    drop(dir);
+                },
+                BatchSize::PerIteration,
+            )
+        });
     }
     group.finish();
 }

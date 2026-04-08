@@ -10,7 +10,7 @@ set -euo pipefail
 #   ./run_benches.sh --hotdb      # hot DB benchmarks only (H1-H6)
 #   ./run_benches.sh B2           # filter to specific group
 
-cd "$(dirname "$0")/benches"
+cd "$(dirname "$0")"
 
 FILTER=""
 EXTRA_ARGS=""

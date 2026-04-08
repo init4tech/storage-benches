@@ -1,5 +1,2 @@
 # Rust build artifacts
-benches/target/
-
-# Criterion output
-benches/target/criterion/
+target/

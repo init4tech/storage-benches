@@ -1,6 +1,6 @@
 //! Shared data generation and constants for benchmarks.
 
-use rand::{Rng, SeedableRng, rngs::SmallRng};
+use rand::{rngs::SmallRng, Rng, SeedableRng};
 
 /// Fixed seed for deterministic data generation.
 pub const SEED: u64 = 0xBEEF_CAFE_DEAD_F00D;

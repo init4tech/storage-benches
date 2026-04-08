@@ -4,12 +4,10 @@ use bench_shared::{
     make_key, make_value, shuffled_indices, sorted_keys, DB_MAX_SIZE, DUPS_PER_KEY, LARGE_N,
     LOOKUP_COUNT, MEDIUM_N, RANGE_COUNT,
 };
-use criterion::{
-    criterion_group, criterion_main, BatchSize, BenchmarkId, Criterion, Throughput,
-};
+use criterion::{criterion_group, criterion_main, BatchSize, BenchmarkId, Criterion, Throughput};
 use reth_libmdbx::*;
 use std::hint::black_box;
-use tempfile::{TempDir, tempdir};
+use tempfile::{tempdir, TempDir};
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -108,8 +106,11 @@ fn b2_point_reads(c: &mut Criterion) {
         populate(&env, n, val_size);
 
         let indices = shuffled_indices(n);
-        let lookup_keys: Vec<[u8; 32]> =
-            indices.iter().take(LOOKUP_COUNT).map(|&i| make_key(i)).collect();
+        let lookup_keys: Vec<[u8; 32]> = indices
+            .iter()
+            .take(LOOKUP_COUNT)
+            .map(|&i| make_key(i))
+            .collect();
 
         group.throughput(Throughput::Elements(LOOKUP_COUNT as u64));
         group.bench_with_input(
@@ -121,10 +122,7 @@ fn b2_point_reads(c: &mut Criterion) {
                 b.iter(|| {
                     let mut total = 0usize;
                     for key in keys {
-                        if let Some(val) = txn
-                            .get::<Vec<u8>>(db.dbi(), key.as_slice())
-                            .unwrap()
-                        {
+                        if let Some(val) = txn.get::<Vec<u8>>(db.dbi(), key.as_slice()).unwrap() {
                             total += val.len();
                         }
                     }
@@ -147,67 +145,61 @@ fn b3_batch_writes(c: &mut Criterion) {
         group.throughput(Throughput::Elements(batch as u64));
 
         // UPSERT (random order)
-        group.bench_function(
-            BenchmarkId::new("reth/upsert", batch),
-            |b| {
-                let indices = shuffled_indices(batch);
-                let pairs: Vec<([u8; 32], Vec<u8>)> = indices
-                    .iter()
-                    .map(|&i| (make_key(i), make_value(i, 256)))
-                    .collect();
+        group.bench_function(BenchmarkId::new("reth/upsert", batch), |b| {
+            let indices = shuffled_indices(batch);
+            let pairs: Vec<([u8; 32], Vec<u8>)> = indices
+                .iter()
+                .map(|&i| (make_key(i), make_value(i, 256)))
+                .collect();
 
-                b.iter_batched(
-                    || {
-                        let dir = tempdir().unwrap();
-                        let env = open_env(&dir);
-                        {
-                            let txn = env.begin_rw_txn().unwrap();
-                            let _ = txn.open_db(None).unwrap();
-                            txn.commit().unwrap();
-                        }
-                        (dir, env)
-                    },
-                    |(dir, env)| {
+            b.iter_batched(
+                || {
+                    let dir = tempdir().unwrap();
+                    let env = open_env(&dir);
+                    {
                         let txn = env.begin_rw_txn().unwrap();
-                        let db = txn.open_db(None).unwrap();
-                        for (k, v) in &pairs {
-                            txn.put(db.dbi(), k.as_slice(), v.as_slice(), WriteFlags::UPSERT)
-                                .unwrap();
-                        }
+                        let _ = txn.open_db(None).unwrap();
                         txn.commit().unwrap();
-                        drop(dir);
-                    },
-                    BatchSize::PerIteration,
-                )
-            },
-        );
+                    }
+                    (dir, env)
+                },
+                |(dir, env)| {
+                    let txn = env.begin_rw_txn().unwrap();
+                    let db = txn.open_db(None).unwrap();
+                    for (k, v) in &pairs {
+                        txn.put(db.dbi(), k.as_slice(), v.as_slice(), WriteFlags::UPSERT)
+                            .unwrap();
+                    }
+                    txn.commit().unwrap();
+                    drop(dir);
+                },
+                BatchSize::PerIteration,
+            )
+        });
 
         // APPEND (sorted order — fastest path)
-        group.bench_function(
-            BenchmarkId::new("reth/append", batch),
-            |b| {
-                let keys = sorted_keys(batch);
-                b.iter_batched(
-                    || {
-                        let dir = tempdir().unwrap();
-                        let env = open_env(&dir);
-                        (dir, env)
-                    },
-                    |(dir, env)| {
-                        let txn = env.begin_rw_txn().unwrap();
-                        let db = txn.open_db(None).unwrap();
-                        for (i, k) in keys.iter().enumerate() {
-                            let v = make_value(i as u32, 256);
-                            txn.put(db.dbi(), k.as_slice(), v.as_slice(), WriteFlags::APPEND)
-                                .unwrap();
-                        }
-                        txn.commit().unwrap();
-                        drop(dir);
-                    },
-                    BatchSize::PerIteration,
-                )
-            },
-        );
+        group.bench_function(BenchmarkId::new("reth/append", batch), |b| {
+            let keys = sorted_keys(batch);
+            b.iter_batched(
+                || {
+                    let dir = tempdir().unwrap();
+                    let env = open_env(&dir);
+                    (dir, env)
+                },
+                |(dir, env)| {
+                    let txn = env.begin_rw_txn().unwrap();
+                    let db = txn.open_db(None).unwrap();
+                    for (i, k) in keys.iter().enumerate() {
+                        let v = make_value(i as u32, 256);
+                        txn.put(db.dbi(), k.as_slice(), v.as_slice(), WriteFlags::APPEND)
+                            .unwrap();
+                    }
+                    txn.commit().unwrap();
+                    drop(dir);
+                },
+                BatchSize::PerIteration,
+            )
+        });
     }
     group.finish();
 }
@@ -281,7 +273,11 @@ fn b5_range_queries(c: &mut Criterion) {
             let dbi = txn.open_db(None).unwrap().dbi();
             let mut cursor = txn.cursor(dbi).unwrap();
             let mut count = 0u64;
-            if cursor.set_range::<(), ()>(mid_key.as_slice()).unwrap().is_some() {
+            if cursor
+                .set_range::<(), ()>(mid_key.as_slice())
+                .unwrap()
+                .is_some()
+            {
                 count += 1;
                 for _ in 1..RANGE_COUNT {
                     if cursor.next::<(), ()>().unwrap().is_none() {
