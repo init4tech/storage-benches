@@ -5528,10 +5528,10 @@ dependencies = [
  "bench-shared",
  "criterion",
  "rand 0.9.2",
- "signet-hot",
+ "signet-hot 0.6.9",
  "signet-hot-mdbx",
  "signet-libmdbx",
- "signet-storage-types",
+ "signet-storage-types 0.6.9",
  "tempfile",
 ]
 
@@ -5588,7 +5588,25 @@ dependencies = [
  "bytes",
  "itertools 0.14.0",
  "rayon",
- "signet-storage-types",
+ "signet-storage-types 0.6.9",
+ "signet-zenith",
+ "thiserror 2.0.18",
+ "trevm",
+]
+
+[[package]]
+name = "signet-hot"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60383f2e2d0aedba45e4c1cd5f3e44711f1c2bca9edb025fd181b4f77f513a68"
+dependencies = [
+ "ahash",
+ "alloy",
+ "auto_impl",
+ "bytes",
+ "itertools 0.14.0",
+ "rayon",
+ "signet-storage-types 0.7.0",
  "signet-zenith",
  "thiserror 2.0.18",
  "trevm",
@@ -5596,15 +5614,15 @@ dependencies = [
 
 [[package]]
 name = "signet-hot-mdbx"
-version = "0.6.9"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf2d025e3f283e52caa0b566f74a2b7d2db470fc415cef66e8127b965de8d0c4"
+checksum = "2e202a356b26d271bc94d258bd7bca41a8275bb742b8d4b914527e2d244fa48f"
 dependencies = [
  "alloy",
  "bytes",
  "page_size",
  "parking_lot",
- "signet-hot",
+ "signet-hot 0.7.0",
  "signet-libmdbx",
  "sysinfo 0.37.2",
  "tempfile",
@@ -5654,6 +5672,23 @@ name = "signet-storage-types"
 version = "0.6.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2f15f0415835cdf27f030f6f5c2fa96ce60fd9c4a60618d90fb686284ab5e0e"
+dependencies = [
+ "alloy",
+ "bytes",
+ "roaring",
+ "serde",
+ "signet-evm",
+ "signet-types",
+ "signet-zenith",
+ "thiserror 2.0.18",
+ "trevm",
+]
+
+[[package]]
+name = "signet-storage-types"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b9da884d49f8c742a30b1ab7579aa60ccdbbe3bc3e23d7c738cb4195bf90a419"
 dependencies = [
  "alloy",
  "bytes",

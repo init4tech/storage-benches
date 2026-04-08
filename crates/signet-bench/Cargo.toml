@@ -14,7 +14,7 @@ signet-libmdbx = "0.8.1"
 
 # Hot DB deps
 signet-hot = { version = "0.6.9", features = ["test-utils"] }
-signet-hot-mdbx = { version = "0.6.9", features = ["test-utils"] }
+signet-hot-mdbx = { version = "0.7.0", features = ["test-utils"] }
 signet-storage-types = "0.6.9"
 alloy = { version = "1.6", default-features = false, features = ["consensus", "rlp"] }
 
