@@ -22,16 +22,16 @@ Compare performance of two matched pairs:
 storage-benches/
 ├── RESEARCH.md              # API research notes
 ├── BENCH_SPEC.md            # This file
-└── benches/                 # Benchmark crate
-    ├── Cargo.toml
-    └── benches/
-        ├── binding_reads.rs
-        ├── binding_writes.rs
-        ├── binding_iteration.rs
-        ├── binding_txn.rs
-        ├── hotdb_reads.rs
-        ├── hotdb_writes.rs
-        └── hotdb_iteration.rs
+└── crates/
+    ├── shared/              # bench-shared: constants + data generators
+    ├── reth-bench/          # reth benchmarks
+    │   └── benches/
+    │       ├── bindings.rs
+    │       └── hotdb.rs
+    └── signet-bench/        # signet benchmarks
+        └── benches/
+            ├── bindings.rs
+            └── hotdb.rs
 ```
 
 ---

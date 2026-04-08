@@ -28,8 +28,7 @@ detection), and it produces comparable output formats.
 ### Workspace Layout
 
 ```
-benches/
-├── Cargo.toml             # workspace root (3 members)
+crates/
 ├── shared/                # bench-shared: constants + data generators
 │   └── src/lib.rs
 ├── reth-bench/            # B1-B7 bindings + H1-H6 hot DB for reth
