@@ -14,7 +14,7 @@ reth-libmdbx = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
 
 # Hot DB deps
 reth-db = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3", features = ["test-utils"] }
-reth-db-api = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
+reth-db-api = { git = "https://github.com/paradigmxyz/reth", tag = "v2.0.0" }
 reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth", tag = "v1.11.3" }
 alloy-primitives = { version = "1.5", features = ["getrandom"] }
 alloy-consensus = "1.8"
